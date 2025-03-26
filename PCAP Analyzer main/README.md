@@ -1,6 +1,6 @@
-# Network Traffic Analysis System
+# PCAP Analyzer using AI
 
-A comprehensive system for analyzing network packet captures (PCAPs) with AI-powered anomaly detection and LLM-based insights.
+A system for analyzing network packet captures (PCAPs) with AI-powered anomaly detection and LLM-based insights.
 
 ## Overview
 
@@ -86,46 +86,3 @@ docker compose logs -f
 1. Open your browser and navigate to http://localhost:3000
 2. Upload a PCAP file or use the Demo Analysis feature
 3. View the comprehensive analysis with AI-powered insights
-
-## Troubleshooting
-
-### LLM Service Issues
-
-- Ensure the Ollama service is running: `docker ps | grep ollama`
-- Check if the model is correctly pulled: `docker exec -it <ollama_container_name> ollama list`
-- Verify the API is accessible: `curl http://localhost:11434/api/tags`
-
-### Backend Issues
-
-- Check if tshark is installed: `tshark --version`
-- Verify the Flask server is running: `curl http://localhost:5000/api/status`
-- Check logs for Python errors: `docker logs backend`
-- If you see JSON serialization errors, they may be related to None values in the data
-
-### Frontend Issues
-
-- Clear Next.js cache: `rm -rf .next`
-- Verify environment variables: `echo $NEXT_PUBLIC_API_URL`
-- Check browser console for network errors
-
-## Project Structure
-
-├── backend/ # Flask backend
-│ ├── app.py # Main application entry point
-│ ├── llm_engine.py # LLM integration
-│ ├── models/ # ML models for analysis
-│ ├── packet_processing/ # PCAP handling
-│ └── requirements.txt # Python dependencies
-├── frontend/ # Next.js frontend
-│ ├── app/ # Next.js App Router
-│ ├── components/ # React components
-│ ├── contexts/ # State management
-│ ├── services/ # API services
-│ └── visualizations/ # Data visualization components
-├── docker-compose.yml # Docker Compose configuration
-└── README.md # This file
-
-
-## License
-
-[MIT](LICENSE)
